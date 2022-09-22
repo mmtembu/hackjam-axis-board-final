@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'config/pallet.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,9 +25,10 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.blue,
+        primarySwatch: Pallet.kToDark,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      debugShowCheckedModeBanner: false,
+      home: const MyHomePage(title: 'Axis Board'),
     );
   }
 }
@@ -69,47 +73,63 @@ class _MyHomePageState extends State<MyHomePage> {
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
+    const logoSvg =
+        '<svg width="34" height="28" viewBox="0 0 34 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.4003 2.82336C13.4003 1.32041 13.8105 0.851875 14.4564 0.425937C9.17576 0.943147 3.11254 2.49478 1.06108 4.46626C0.650784 4.93479 0.354462 5.7319 0.354462 6.72373C0.354462 13.0215 8.46914 27.26 14.3424 27.26C17.1005 27.26 21.7353 23.6395 25.4887 18.8021C24.9568 18.942 24.6073 18.942 24.0831 18.942C19.737 18.942 13.4003 6.86368 13.4003 2.82336V2.82336ZM22.7306 0C20.4436 0 19.5622 0.328581 19.5622 2.20879C19.5622 6.24911 23.65 14.2872 27.2894 14.2872C29.2877 14.2872 33.2767 8.22059 33.2767 3.19453C33.2767 0.705839 28.186 0 22.7306 0Z" fill="black"/></svg>';
     return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+      body: Stack(
+        fit: StackFit.expand,
+        // mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          //   // Center is a layout widget. It takes a single child and positions it
+          //   // in the middle of the parent.
+          Align(
+            alignment: const Alignment(0.0, 0.0),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisSize: MainAxisSize.max,
+              children: <Widget>[
+                SvgPicture.string(logoSvg),
+                Text(
+                  'Axis Board',
+                  style: GoogleFonts.comfortaa(fontSize: 40),
+                ),
+              ],
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
+          ),
+          Align(
+            alignment: FractionalOffset.bottomCenter,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                OutlinedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.white,
+                    foregroundColor: Colors.black,
+                    elevation: 3.0,
+                    shadowColor: Colors.black,
+                  ),
+                  onPressed: null,
+                  child: Text(
+                    'Login',
+                    style: GoogleFonts.comfortaa(fontSize: 25),
+                  ),
+                ),
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.black,
+                  ),
+                  onPressed: null,
+                  child: Text(
+                    "Register",
+                    style: GoogleFonts.comfortaa(fontSize: 25),
+                  ),
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
