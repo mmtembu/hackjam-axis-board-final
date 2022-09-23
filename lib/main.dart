@@ -76,59 +76,100 @@ class _MyHomePageState extends State<MyHomePage> {
     const logoSvg =
         '<svg width="34" height="28" viewBox="0 0 34 28" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.4003 2.82336C13.4003 1.32041 13.8105 0.851875 14.4564 0.425937C9.17576 0.943147 3.11254 2.49478 1.06108 4.46626C0.650784 4.93479 0.354462 5.7319 0.354462 6.72373C0.354462 13.0215 8.46914 27.26 14.3424 27.26C17.1005 27.26 21.7353 23.6395 25.4887 18.8021C24.9568 18.942 24.6073 18.942 24.0831 18.942C19.737 18.942 13.4003 6.86368 13.4003 2.82336V2.82336ZM22.7306 0C20.4436 0 19.5622 0.328581 19.5622 2.20879C19.5622 6.24911 23.65 14.2872 27.2894 14.2872C29.2877 14.2872 33.2767 8.22059 33.2767 3.19453C33.2767 0.705839 28.186 0 22.7306 0Z" fill="black"/></svg>';
     return Scaffold(
-      body: Stack(
-        fit: StackFit.expand,
-        // mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          //   // Center is a layout widget. It takes a single child and positions it
-          //   // in the middle of the parent.
-          Align(
-            alignment: const Alignment(0.0, 0.0),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              mainAxisSize: MainAxisSize.max,
-              children: <Widget>[
-                SvgPicture.string(logoSvg),
-                Text(
-                  'Axis Board',
-                  style: GoogleFonts.comfortaa(fontSize: 40),
-                ),
-              ],
+      body: Container(
+        padding: const EdgeInsets.all(15),
+        child: Stack(
+          fit: StackFit.expand,
+          children: [
+            Align(
+              alignment: const Alignment(0.0, 0.0),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisSize: MainAxisSize.max,
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.all(10),
+                    child: SvgPicture.string(logoSvg),
+                  ),
+                  Text(
+                    'AxisBoard',
+                    style: GoogleFonts.comfortaa(
+                      fontSize: 40,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
             ),
-          ),
-          Align(
-            alignment: FractionalOffset.bottomCenter,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                OutlinedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.white,
-                    foregroundColor: Colors.black,
-                    elevation: 3.0,
-                    shadowColor: Colors.black,
+            Align(
+              // alignment: FractionalOffset.bottomCenter,
+              alignment: const Alignment(0.0, 0.85),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.all(15),
+                    child: OutlinedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.white,
+                        foregroundColor: Colors.black,
+                        elevation: 3.0,
+                        shadowColor: Colors.black,
+                      ),
+                      onPressed: (() => {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                content: Text(
+                                    "Yes please check it's me, Login has been pressed!!!"),
+                              ),
+                            ),
+                          }),
+                      child: Padding(
+                        padding: const EdgeInsets.all(10),
+                        child: Text(
+                          'LOGIN',
+                          style: GoogleFonts.comfortaa(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ),
                   ),
-                  onPressed: null,
-                  child: Text(
-                    'Login',
-                    style: GoogleFonts.comfortaa(fontSize: 25),
-                  ),
-                ),
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.black,
-                  ),
-                  onPressed: null,
-                  child: Text(
-                    "Register",
-                    style: GoogleFonts.comfortaa(fontSize: 25),
-                  ),
-                ),
-              ],
+                  Padding(
+                    padding: const EdgeInsets.all(15),
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.black,
+                        elevation: 3.0,
+                        shadowColor: Colors.black,
+                      ),
+                      onPressed: (() => {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                content: Text(
+                                    "Yes please check it's me, Registration has been pressed !!!"),
+                              ),
+                            ),
+                          }),
+                      child: Padding(
+                        padding: const EdgeInsets.all(10),
+                        child: Text(
+                          "REGISTER",
+                          style: GoogleFonts.comfortaa(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ),
+                  )
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
