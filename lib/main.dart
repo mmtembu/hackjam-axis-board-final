@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:hackjam_axis_board_front_end/common_components/common_components.dart';
 import 'package:hackjam_axis_board_front_end/pages/registration.dart';
 import 'package:hackjam_axis_board_front_end/pages/login.dart';
 import 'config/pallet.dart';
@@ -128,26 +129,9 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(15),
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.black,
-                        elevation: 3.0,
-                        shadowColor: Colors.black,
-                      ),
-                      onPressed: () => navigateToPage('REGISTRATION'),
-                      child: Padding(
-                        padding: const EdgeInsets.all(10),
-                        child: Text(
-                          "REGISTER",
-                          style: GoogleFonts.comfortaa(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                      ),
-                    ),
+                  submitbutton(
+                    navigateToPage,
+                    'REGISTRATION',
                   )
                 ],
               ),
