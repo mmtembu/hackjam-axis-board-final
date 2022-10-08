@@ -41,15 +41,6 @@ class _RegistrationUsername extends State<RegistrationUsername> {
     _isDialogOn = false;
   }
 
-  void _changeButtonState() {
-    setState(
-      () {
-        print('state is being changed');
-        _isOkayButtonDisabled = _isOkayButtonDisabled ? false : true;
-      },
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     const backButton =
