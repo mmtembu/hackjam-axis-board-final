@@ -112,3 +112,16 @@ At auctor urna nunc id cursus metus aliquam eleifend. Nunc lobortis mattis aliqu
 Arcu cursus euismod quis viverra nibh. Lobortis mattis aliquam faucibus purus in massa. Eget arcu dictum varius duis at consectetur lorem. Vulputate sapien nec sagittis aliquam malesuada bibendum. Nisi quis eleifend quam adipiscing. Turpis massa tincidunt dui ut. Nibh mauris cursus mattis molestie a iaculis at. Gravida arcu ac tortor dignissim convallis aenean. Pellentesque sit amet porttitor eget dolor morbi non. Nibh praesent tristique magna sit. Duis ut diam quam nulla porttitor massa id. Sit amet nulla facilisi morbi tempus iaculis urna. Etiam dignissim diam quis enim lobortis scelerisque fermentum dui faucibus.
 
 Mi bibendum neque egestas congue quisque egestas diam. Aliquet enim tortor at auctor urna. Aliquet eget sit amet tellus. Ut consequat semper viverra nam libero. Hac habitasse platea dictumst vestibulum rhoncus est pellentesque elit. Laoreet non curabitur gravida arcu ac tortor dignissim. Pulvinar etiam non quam lacus suspendisse faucibus. Odio eu feugiat pretium nibh ipsum consequat. Orci nulla pellentesque dignissim enim. Auctor augue mauris augue neque gravida in. Donec massa sapien faucibus et molestie. Quam quisque id diam vel. Tincidunt dui ut ornare lectus sit. At auctor urna nunc id cursus metus. Euismod quis viverra nibh cras pulvinar mattis nunc sed blandit.""";
+
+buttonStyle() => OutlinedButton.styleFrom(
+      backgroundColor: Colors.white,
+      foregroundColor: Colors.black,
+      shape: const RoundedRectangleBorder(
+        side: BorderSide(
+          width: .5,
+          color: Colors.black,
+        ),
+      ),
+      elevation: 5.0,
+      shadowColor: Colors.black,
+    );
