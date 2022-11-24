@@ -14,17 +14,7 @@ class _Login extends State<Login> {
     return Scaffold(
       body: Column(
         children: [
-          Align(
-            alignment: Alignment.topLeft,
-            child: Row(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(20),
-                  child: backImageButton(context),
-                ),
-              ],
-            ),
-          ),
+          backArrowButton(context),
           Padding(
             padding: const EdgeInsets.all(5.0),
             child: Container(

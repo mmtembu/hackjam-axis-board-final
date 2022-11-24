@@ -4,6 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hackjam_axis_board_front_end/common_components/common_components.dart';
 import 'package:hackjam_axis_board_front_end/pages/registration.dart';
+import 'package:hackjam_axis_board_front_end/pages/registration_as.dart';
 import 'package:hackjam_axis_board_front_end/pages/login.dart';
 import 'config/pallet.dart';
 
@@ -44,7 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
           CupertinoPageRoute<bool>(
             fullscreenDialog: false,
             builder: (context) => page.toString().toUpperCase() == 'REGISTER'
-                ? const Registration()
+                ? const RegistrationAs()
                 : const Login(),
           ),
         );
