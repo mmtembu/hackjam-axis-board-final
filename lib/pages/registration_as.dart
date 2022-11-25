@@ -6,6 +6,10 @@ import 'package:hackjam_axis_board_front_end/common_components/common_components
 import 'package:hackjam_axis_board_front_end/pages/registration.dart';
 import '../config/pallet.dart';
 
+const asOrganisation = "an Organisation";
+const aGraduate = "a Graduate";
+const aJobSeeker = "a JobSeeker";
+
 class RegistrationAs extends StatefulWidget {
   const RegistrationAs({Key? key}) : super(key: key);
 
@@ -39,7 +43,7 @@ class _RegistrationAs extends State<RegistrationAs> {
                     child: Padding(
                       padding: const EdgeInsets.all(20),
                       child: textContent(
-                        'Register As',
+                        'Register as',
                         36,
                         FontWeight.bold,
                       ),
@@ -52,13 +56,14 @@ class _RegistrationAs extends State<RegistrationAs> {
                     children: [
                       registerAsIconWidget(
                         context,
-                        "An Organization",
-                        const Registration(),
+                        asOrganisation[0].toUpperCase() +
+                            asOrganisation.substring(1),
+                        const Registration(registerAsWhat: asOrganisation),
                       ),
                       registerAsIconWidget(
                         context,
-                        "A Graduate",
-                        const Registration(),
+                        aGraduate[0].toUpperCase() + aGraduate.substring(1),
+                        const Registration(registerAsWhat: aGraduate),
                       ),
                     ],
                   ),
@@ -69,8 +74,8 @@ class _RegistrationAs extends State<RegistrationAs> {
                     children: [
                       registerAsIconWidget(
                         context,
-                        "A JobSeeker",
-                        const Registration(),
+                        aJobSeeker[0].toUpperCase() + aJobSeeker.substring(1),
+                        const Registration(registerAsWhat: aJobSeeker),
                       ),
                     ],
                   )
@@ -92,7 +97,7 @@ String obtainSVGImage(registerAsText) => registerAsText == "A Graduate"
 
 Widget registerAsIconWidget(context, registerAsText, page) => Container(
       height: 200,
-      width: 232,
+      width: 233,
       color: Colors.transparent,
       child: IconButton(
         onPressed: () => navigateToPage(context, page),
