@@ -4,7 +4,8 @@ import 'package:hackjam_axis_board_front_end/common_components/common_components
 import 'package:hackjam_axis_board_front_end/pages/registration_pick_username.dart';
 
 class Registration extends StatefulWidget {
-  const Registration({Key? key}) : super(key: key);
+  final String? registerAsWhat;
+  const Registration({Key? key, this.registerAsWhat}) : super(key: key);
 
   @override
   State<Registration> createState() => _Registration();
@@ -13,28 +14,20 @@ class Registration extends StatefulWidget {
 class _Registration extends State<Registration> {
   @override
   Widget build(BuildContext context) {
-    void navigateToPage(page) => Navigator.push(
-          context,
-          CupertinoPageRoute<bool>(
-            fullscreenDialog: false,
-            builder: (context) => const RegistrationUsername(),
-          ),
-        );
+    Future<void> navigateToPage(page) async {
+      Navigator.push(
+        context,
+        CupertinoPageRoute<bool>(
+          fullscreenDialog: false,
+          builder: (context) => const RegistrationUsername(),
+        ),
+      );
+    }
 
     return Scaffold(
       body: Column(
         children: [
-          Align(
-            alignment: Alignment.topLeft,
-            child: Row(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(20),
-                  child: backImageButton(context),
-                ),
-              ],
-            ),
-          ),
+          backArrowButton(context),
           Padding(
             padding: const EdgeInsets.all(5.0),
             child: Container(
@@ -49,7 +42,7 @@ class _Registration extends State<Registration> {
                     child: Padding(
                       padding: const EdgeInsets.all(20),
                       child: textContent(
-                        'Register',
+                        'Register as ${widget.registerAsWhat}',
                         36,
                         FontWeight.bold,
                       ),
